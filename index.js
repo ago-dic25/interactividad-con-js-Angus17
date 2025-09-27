@@ -31,6 +31,8 @@ suma(100, 200);
 //===Elementos de la pagina como variables===///
 var botonBuscar = document.getElementById("buscar");
 
+let mostrar_ocultar = document.getElementById("");
+
 console.log(botonBuscar);
 
 //==== Eventos===== //
@@ -38,4 +40,6 @@ botonBuscar.addEventListener("click", function(){
     //alert("Hiciste clic al boton");
     botonBuscar.classList.add("rojo");
 });
+
+
 
