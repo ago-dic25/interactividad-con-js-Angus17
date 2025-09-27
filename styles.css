@@ -222,3 +222,56 @@ aside img{
 
 /* --------------------------------------- */
 
+#seeAll .tarjeta img {
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+
+#seeAll img{
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+
+.dark{
+    background-color: black;
+    color: white;
+}
+
+#gallery-img {
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+
+.ocultar {
+    display: none;
+}
+
+.dark,
+.dark header,
+.dark .main-content,
+.dark aside,
+.dark .begin .buttons > button,
+.dark .begin .search #s1,
+.dark .main-content .m1 .m1-text .sp1 #m1-h3,
+.dark .main-content .m1 .m1-text #m1-btn,
+.dark .main-content .m1 .m1-t2 #m1-ul li,
+.dark .main-content .m1 .m1-t2 .m1-t2-p > p {
+    background-color: black !important;
+    color: white !important;
+    border-color: white !important;
+}
+
+.dark #gallery-img,
+.dark aside img,
+.dark .main-content .m1 #m1-img {
+    border-color: white !important;
+}

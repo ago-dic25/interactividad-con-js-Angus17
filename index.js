@@ -1,45 +1,55 @@
-//====Variables=====//
-var arreglo = [1, 2, 3, 4, 5];
-var entero = 1;
-var cadena_texto = "Hola Mundo";
-var booleano = true;
+let botonModo = document.getElementById("n0");
+let likeBtn = document.getElementById("like-btn");
+let likeCount = document.getElementById("like-count");
+let contador = 0;
 
-//===Constantes====//
-const PI = 3.1416;
+let inputBuscar = document.getElementById("s0");
+let botonBuscar = document.getElementById("s1");
 
+let seeAll = document.getElementById("seeAll");
+let galleryImg = document.getElementById("gallery-img");
+let imagenes = [
+    "./imagenes/arnel-hasanovic-MNd-Rka1o0Q-unsplash.jpg",
+    "./imagenes/jukka-aalho-OaPksPcVp50-unsplash.jpg",
+    "./imagenes/rachel-coyne-mTsotT-gMrY-unsplash.jpg",
+    "./imagenes/soundtrap-n30_i7mx62o-unsplash.jpg"
+];
+let idx = 0;
+let intervalo = null;
 
-//====Funciones====//
-function suma(x, y){
-    var resultado = x + y;
-    console.log("El resultado de la suma es: " + resultado);
-    return resultado;
-}
-
-function imprimirMensaje(mensaje){
-    console.log("Este es mi mensaje " + mensaje);
-}
-
-imprimirMensaje("Hola");
-imprimirMensaje("Vacaciones 1 semana :D");
-imprimirMensaje(true);
-
-suma(1, 2);
-suma(10, 20);
-suma(100, 200);
-
-
-//===Elementos de la pagina como variables===///
-var botonBuscar = document.getElementById("buscar");
-
-let mostrar_ocultar = document.getElementById("");
-
-console.log(botonBuscar);
-
-//==== Eventos===== //
-botonBuscar.addEventListener("click", function(){
-    //alert("Hiciste clic al boton");
-    botonBuscar.classList.add("rojo");
+seeAll.addEventListener("mouseover", function() {
+    galleryImg.style.display = "block";
+    intervalo = setInterval(function() {
+        idx = (idx + 1) % imagenes.length;
+        galleryImg.src = imagenes[idx];
+    }, 2000);
 });
 
+seeAll.addEventListener("mouseout", function() {
+    clearInterval(intervalo);
+});
 
+botonBuscar.addEventListener("click", function() {
+    galleryImg.style.display = "none";
+    let palabra = prompt("Escribe tu búsqueda");
+    let tarjetas = document.querySelectorAll(".tarjeta");
+    tarjetas.forEach(function(tarjeta) {
+        if (tarjeta.textContent.toLowerCase().includes(palabra.toLowerCase())) {
+            tarjeta.classList.remove("ocultar");
+            tarjeta.querySelector("img").style.display = "block";
+        } else {
+            tarjeta.classList.add("ocultar");
+            tarjeta.querySelector("img").style.display = "none";
+        }
+    });
+});
 
+botonModo.addEventListener("click", function() {
+    document.body.classList.toggle("dark");
+    botonModo.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+});
+
+likeBtn.addEventListener("click", function() {
+    contador++;
+    likeCount.textContent = contador;
+});
